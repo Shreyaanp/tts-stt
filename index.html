@@ -21,7 +21,7 @@
 
   <!-- STT Section -->
   <h2>Speech-to-Text (STT)</h2>
-  <button onclick="askForMicrophonePermission()">Start Listening</button>
+  <button onclick="startSpeechRecognition()">Start Listening</button>
   <p id="sttResult">Recognition Result: </p>
 
   <script>
@@ -40,17 +40,6 @@
     }
 
     // STT Functions
-    function askForMicrophonePermission() {
-      navigator.mediaDevices.getUserMedia({ audio: true })
-        .then(() => {
-          console.log('Microphone permission granted. Starting speech recognition...');
-          startSpeechRecognition();
-        })
-        .catch((error) => {
-          console.error('Microphone permission denied:', error);
-        });
-    }
-
     function startSpeechRecognition() {
       const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
       recognition.lang = 'en-US';
