@@ -41,7 +41,6 @@
 
     // STT Functions
     function askForMicrophonePermission() {
-      alert('Please allow microphone access.');
       navigator.mediaDevices.getUserMedia({ audio: true })
         .then(() => {
           console.log('Microphone permission granted. Starting speech recognition...');
